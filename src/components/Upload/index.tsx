@@ -1,5 +1,7 @@
-import React, { ReactNode } from 'react';
+/* Upload => Componente de "drag n drop" a ser usado na page Import/index.tsx
+para a captura de arquivos através do método de arrasta/solta. */
 
+import React, { ReactNode } from 'react';
 import Dropzone from 'react-dropzone';
 import { DropContainer, UploadMessage } from './styles';
 
@@ -27,7 +29,10 @@ const Upload: React.FC<UploadProps> = ({ onUpload }: UploadProps) => {
 
   return (
     <>
-      <Dropzone accept=".csv, application/vnd.ms-excel, text/csv" onDropAccepted={(files) => onUpload(files)}>
+      <Dropzone
+        accept=".csv, application/vnd.ms-excel, text/csv"
+        onDropAccepted={files => onUpload(files)}
+      >
         {({ getRootProps, getInputProps, isDragActive, isDragReject }): any => (
           <DropContainer
             {...getRootProps()}

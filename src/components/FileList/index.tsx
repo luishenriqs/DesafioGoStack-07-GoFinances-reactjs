@@ -1,12 +1,13 @@
-import React from 'react';
+/* FileList => Componente que prepara e exibe listagem com o nome e tamanho
+do arquivo que foi "uploaded" na page Import/index.tsx. */
 
+import React from 'react';
 import { Container, FileInfo } from './styles';
 
 interface FileProps {
   name: string;
   readableSize: string;
 }
-
 interface FileListProps {
   files: FileProps[];
 }
@@ -14,7 +15,7 @@ interface FileListProps {
 const FileList: React.FC<FileListProps> = ({ files }: FileListProps) => {
   return (
     <Container>
-      {files.map((uploadedFile) => (
+      {files.map(uploadedFile => (
         <li key={uploadedFile.name}>
           <FileInfo>
             <div>
