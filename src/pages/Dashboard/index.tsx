@@ -4,6 +4,7 @@ import outcome from '../../assets/outcome.svg';
 import total from '../../assets/total.svg';
 import api from '../../services/api';
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import formatValue from '../../utils/formatValue';
 import formatDate from '../../utils/formatDate';
 import { Container, CardContainer, Card, TableContainer } from './styles';
@@ -38,7 +39,12 @@ const Dashboard: React.FC = () => {
     }
 
     loadTransactions();
-  }, []);
+  }, [transactionsArray]);
+
+  async function handleDelete(id: string): Promise<void> {
+    const response = await api.delete(`/transactions/${id}`);
+    console.log(response);
+  }
 
   return (
     <>
@@ -82,9 +88,9 @@ const Dashboard: React.FC = () => {
                 <th>Data</th>
               </tr>
             </thead>
-            <tbody>
-              {transactionsArray.map(transaction => (
-                <tr key={transaction.id}>
+            {transactionsArray.map(transaction => (
+              <tbody key={transaction.id}>
+                <tr>
                   <td className="title">{transaction.title}</td>
                   <td className={transaction.type}>
                     {transaction.type === 'outcome'
@@ -93,12 +99,21 @@ const Dashboard: React.FC = () => {
                   </td>
                   <td>{transaction.category.title}</td>
                   <td>{formatDate(transaction.created_at)}</td>
+                  <td>
+                    <button
+                      type="button"
+                      onClick={() => handleDelete(transaction.id)}
+                    >
+                      Deletar
+                    </button>
+                  </td>
                 </tr>
-              ))}
-            </tbody>
+              </tbody>
+            ))}
           </table>
         </TableContainer>
       </Container>
+      <Footer />
     </>
   );
 };

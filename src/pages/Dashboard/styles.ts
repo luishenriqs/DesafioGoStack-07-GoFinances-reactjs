@@ -24,7 +24,7 @@ export const CardContainer = styled.section`
 `;
 
 export const Card = styled.div`
-  background: ${({ total }: CardProps): string => (total ? '#FF872C' : '#fff')};
+  background: ${({ total }: CardProps): string => (total ? '#FFa54f' : '#fff')};
   padding: 22px 32px;
   border-radius: 5px;
   color: ${({ total }: CardProps): string => (total ? '#fff' : '#363F5F')};
@@ -89,7 +89,16 @@ export const TableContainer = styled.section`
     }
 
     td:last-child {
+      width: 50px;
+      padding: 20px 10px;
       border-radius: 0 8px 8px 0;
+      background: #e83f5b;
+
+      button {
+        border: none;
+        color: #fff;
+        background: #e83f5b;
+      }
     }
   }
 `;
