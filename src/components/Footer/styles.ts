@@ -40,6 +40,13 @@ export const Form = styled.form`
     border-radius: 5px 0 0 5px;
     border: solid 1px #e5e5e5;
     color: #12a454;
+    transition: 0.5s;
+
+    &:hover {
+      color: #fff;
+      background-color: #12a454;
+      border: solid 1px #12a454;
+    }
   }
 
   #out {
@@ -49,6 +56,13 @@ export const Form = styled.form`
     border-radius: 0 5px 5px 0;
     border: solid 1px #e5e5e5;
     color: #e83f5b;
+    transition: 0.5s;
+
+    &:hover {
+      color: #fff;
+      background-color: #e83f5b;
+      border: solid 1px #e83f5b;
+    }
   }
 
   button {
@@ -60,6 +74,13 @@ export const Form = styled.form`
     color: #fff;
     border: none;
     font-weight: bold;
+    transition: 0.5s;
+
+    &:hover {
+      color: #ffa54f;
+      background-color: #fff;
+      border: solid 1px #ffa54f;
+    }
   }
 
   img {

@@ -93,11 +93,16 @@ export const TableContainer = styled.section`
       padding: 20px 10px;
       border-radius: 0 8px 8px 0;
       background: #e83f5b;
+      transition: 0.5s;
 
       button {
         border: none;
         color: #fff;
         background: #e83f5b;
+
+        &:hover {
+          font-size: 18px;
+        }
       }
     }
   }
